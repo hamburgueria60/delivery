@@ -1,0 +1,16 @@
+{
+  "name": "@hamburgueria60/delivery",
+  "version": "1.0.0",
+  "private": true,
+  "repository": "git@github.com:hamburgueria60/delivery.git",
+  "license": "MIT",
+  "author": "Richard Lopes <richard.lopes92@gmail.com>",
+  "main": "index.js",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "yarn @hamburgueria60/delivery-client build",
+    "start": "yarn build && yarn @hamburgueria60/delivery-server start"
+  }
+}

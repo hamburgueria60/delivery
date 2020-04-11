@@ -1,0 +1,17 @@
+#empty-tax .explanation {
+    word-break: break-all;
+}
+
+#empty-tax .u-dashed {
+    border-bottom: 1px dashed;
+}
+
+#empty-tax md-checkbox.minimal {
+    margin-bottom: 0;
+}
+
+#empty-tax md-checkbox .md-label > div {
+    margin-top: -4px;
+}
+
+/*# sourceMappingURL=empty-tax.css.map */

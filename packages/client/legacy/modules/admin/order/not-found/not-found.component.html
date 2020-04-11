@@ -1,0 +1,59 @@
+<md-card>
+  <md-card-content layout="row" layout-align="center center">
+
+    <!-- Número não identificado -->
+    <div layout="row" layout-fill
+         ng-show="$ctrl.searchManager.searchType === PHONE">
+      <md-icon class="mr-xs">phone</md-icon>
+      <div flex>
+        <div class="md-subhead">{{ $ctrl.searchManager.query | phoneNumber }}</div>
+        <span class="md-body-1">Número não identificado</span>
+      </div>
+      <md-button
+        class="md-icon-button"
+        title="Adicionar novo cliente"
+        onclick="ga('send', 'event', 'modules/admin/order/not-found/not-found.component.html', 'ng-click', 'notFoundCtrl.showAddClientDialog($ctrl.searchManager.query)');" ng-click="notFoundCtrl.showAddClientDialog($ctrl.searchManager.query)">
+        <md-icon>person_add</md-icon>
+      </md-button>
+      <md-button
+        class="md-icon-button"
+        title="Remover número"
+        onclick="ga('send', 'event', 'modules/admin/order/not-found/not-found.component.html', 'ng-click', '$ctrl.resetToDefault()');" ng-click="$ctrl.resetToDefault()">
+        <md-icon>delete</md-icon>
+      </md-button>
+    </div>
+
+    <!-- Endereço não identificado -->
+    <div layout="row" layout-fill
+         ng-show="$ctrl.searchManager.searchType === ADDRESS">
+      <md-icon class="mr-xs">home</md-icon>
+      <div flex>
+        <div class="md-subhead">{{ $ctrl.searchManager.query }}</div>
+        <span class="md-body-1">Endereço não identificado</span>
+      </div>
+      <md-button
+        class="md-icon-button"
+        title="Remover número"
+        onclick="ga('send', 'event', 'modules/admin/order/not-found/not-found.component.html', 'ng-click', '$ctrl.resetToDefault()');" ng-click="$ctrl.resetToDefault()">
+        <md-icon>delete</md-icon>
+      </md-button>
+    </div>
+
+    <!-- Nome não identificado -->
+    <div layout="row" layout-fill
+         ng-show="$ctrl.searchManager.searchType === NAME">
+      <md-icon class="mr-xs">person</md-icon>
+      <div flex>
+        <div class="md-subhead">{{ $ctrl.searchManager.query }}</div>
+        <span class="md-body-1">Nome não identificado</span>
+      </div>
+      <md-button
+        class="md-icon-button"
+        title="Remover número"
+        onclick="ga('send', 'event', 'modules/admin/order/not-found/not-found.component.html', 'ng-click', '$ctrl.resetToDefault()');" ng-click="$ctrl.resetToDefault()">
+        <md-icon>delete</md-icon>
+      </md-button>
+    </div>
+
+  </md-card-content>
+</md-card>

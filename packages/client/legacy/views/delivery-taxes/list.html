@@ -1,0 +1,36 @@
+<style>
+    th.md-body-2 {
+        font-weight: bold;
+    }
+</style>
+
+<md-card class="table">
+
+    <md-card-content>
+        <table layout-fill>
+
+            <tbody>
+            <tr class="border-bottom" layout-padding>
+                <th class="md-body-2">Bairro/conjunto</th>
+                <th class="md-body-2">Valor</th>
+            </tr>
+
+            <tr ng-repeat="tax in deliveryTaxes" layout-padding
+                onclick="ga('send', 'event', 'views/delivery-taxes/list.html', 'ng-click', 'editTax(tax)');" ng-click="editTax(tax)"
+                class="action-hover md-body-1">
+
+                <td>
+                    <md-icon ng-show="!tax"
+                             class="clickable md-warn"
+                             title="Não existe taxa cadastrada"
+                             onclick="ga('send', 'event', 'views/delivery-taxes/list.html', 'ng-click', '$event.stopPropagation()');" ng-click="$event.stopPropagation()">
+                        warning
+                    </md-icon>
+                    {{tax.neighborhood}}
+                </td>
+                <td>{{tax.value|currency}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </md-card-content>
+</md-card>

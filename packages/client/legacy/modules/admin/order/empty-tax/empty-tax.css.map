@@ -1,0 +1,9 @@
+{
+  "version": 3,
+  "mappings": "AACE,uBAAY;EACV,UAAU,EAAE,SAAS;AACvB,oBAAS;EACP,aAAa,EAAE,UAAU;AAEzB,8BAAS;EACP,aAAa,EAAE,CAAC;AAClB,sCAAe;EACb,UAAU,EAAE,IAAI",
+  "sources": [
+    "empty-tax.sass"
+  ],
+  "names": [],
+  "file": "empty-tax.css"
+}

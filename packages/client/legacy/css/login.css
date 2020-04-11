@@ -1,0 +1,173 @@
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+    display: none !important;
+}
+
+body {
+}
+
+#main-container {
+    background: url("../css/img/login-background.jpg");
+    background-size: cover;
+}
+
+.arrow {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 12px 12px 0 12px;
+    border-color: #2D292A transparent transparent transparent;
+    margin-left: 10px;
+    margin-top: -1px;
+}
+
+#wrap-container {
+    padding-left: 20px;
+}
+
+#login-container {
+    height: 300px;
+    width: 900px;
+    color: white;
+}
+
+#login-container * {
+    color: white;
+}
+
+#login-container > :nth-child(1) {
+    background: #2D292A;
+    padding: 24px 36px 24px 24px;
+}
+
+#login-container > :nth-child(2) {
+    background: #E6553A;
+}
+
+#login-container .title {
+    color: #CCCCCC;
+    font-size: 26px;
+}
+
+#login-container #identity,
+#login-container #password {
+    padding-left: 44px;
+    border: none;
+    background: #525053;
+    height: 44px;
+}
+
+#login-container #login-btn {
+    background-color: #E6553A;
+    margin-left: 0;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+#login-container .text {
+    color: #949394;
+}
+
+#login-container .text-warning {
+    color: #E6553A;
+}
+
+#login-container .input-container md-icon {
+    color: #757575;
+}
+
+#login-container .left-icon {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 10px;
+    margin: auto;
+}
+
+#login-container .input-container {
+    position: relative;
+}
+
+.h60-logo {
+    width: 120px;
+}
+
+.h60-loading-logo {
+    width: 80px;
+}
+
+#login-container #credentials input:focus {
+    outline: none;
+}
+
+#login-container #credentials input:focus + .left-border {
+    display: block;
+}
+
+#login-container .left-border {
+    border-left: #E6553A 4px solid;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    display: none;
+}
+
+@keyframes flickerAnimation {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-o-keyframes flickerAnimation {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes flickerAnimation {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes flickerAnimation {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+#loading-container {
+
+}
+
+.h60-loading-logo {
+    -webkit-animation: flickerAnimation 2s infinite;
+    -moz-animation: flickerAnimation 2s infinite;
+    -o-animation: flickerAnimation 2s infinite;
+    animation: flickerAnimation 2s infinite;
+}

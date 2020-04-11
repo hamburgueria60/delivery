@@ -1,0 +1,62 @@
+*,
+input {
+  font-family: Lato, Helvetica, Arial, sans-serif;
+}
+
+#main-view {
+  box-sizing: border-box;
+  overflow-y: auto;
+  position: relative;
+}
+
+.center {
+  text-align: center;
+}
+
+html body {
+  background: #eee;
+}
+
+/* toolbar -----------------------------------------------------*/
+
+.toolbar {
+  /*background: #192230 !important;*/
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.78);
+}
+
+.toolbar #logo {
+  height: 40px;
+}
+
+.vertical-divider,
+[layout="row"] > md-divider {
+  display: inline;
+  border-top-width: 0;
+  border-right: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+/*sidenav ---------------------------------------------------*/
+
+.sidenav {
+  overflow: hidden;
+
+  width: 272px;
+  min-width: 272px;
+  max-width: 272px;
+}
+
+.sidenav md-content {
+  background: transparent;
+  color: white;
+}
+
+.sidenav #logo {
+  width: 113px;
+  height: auto;
+  margin-bottom: 5px;
+}
+
+/*ng-cloak - Avoid flashing content -------------------------*/
+[ng-cloak] {
+  display: none;
+}

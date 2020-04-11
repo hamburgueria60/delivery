@@ -1,0 +1,163 @@
+@import "all";
+
+$small-icon-size: 24px;
+
+.restaurant-dashboard-order {
+  &__hide {
+    transition: all 0.8s ease-out;
+    opacity: 0;
+  }
+
+  &__show {
+    opacity: 1;
+  }
+
+  &#{&}#{&} {
+    height: auto;
+  }
+
+  &#{&} {
+    display: block;
+    padding: 16px 16px 0 16px;
+    align-items: start;
+  }
+
+  &__header {
+    align-items: baseline;
+  }
+
+  &__owner {
+    &#{&} {
+      font-weight: bold;
+    }
+
+    white-space: nowrap;
+  }
+
+  &__avatar {
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-right: 10px;
+    vertical-align: top;
+  }
+
+  &__divider,
+  &__created-at,
+  &__id {
+    color: rgba(0, 0, 0, 0.54);
+  }
+
+  &__created-at,
+  &__id {
+    @include hintable();
+  }
+
+  &__id {
+    display: inline-block;
+  }
+
+  &__body {
+    margin: 8px 0;
+  }
+
+  &__container {
+    width: 100%;
+  }
+
+  &__top {
+    display: flex;
+  }
+
+  &__actions {
+    margin-left: 52px;
+  }
+
+  &__action {
+    &#{&}#{&}#{&} {
+      min-height: $small-icon-size;
+      line-height: $small-icon-size;
+      height: $small-icon-size;
+      width: $small-icon-size;
+      padding: 0;
+      margin: 0 0 8px 0;
+    }
+
+    &#{&} {
+      svg {
+        fill: #aaa;
+        height: auto;
+        width: auto;
+      }
+    }
+  }
+
+  &__action-icon {
+    margin: 0 0 8px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    line-height: $small-icon-size;
+    color: rgba(0, 0, 0, 0.2);
+
+    &:hover {
+      color: rgba(0, 0, 0, 0.54);
+    }
+  }
+
+  &__actions-divider {
+    position: static;
+  }
+
+  &__rows,
+  &__columns {
+    display: flex;
+  }
+
+  &__columns {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__total {
+    white-space: nowrap;
+  }
+
+  &__metadata {
+    margin: 8px 0;
+    border-collapse: separate;
+
+    td {
+      width: 1px;
+      white-space: nowrap;
+      padding-right: 16px;
+    }
+  }
+
+  &__metadata-item {
+    display: inline-block;
+    text-align: left;
+  }
+
+  &__order-table,
+  &__order-total {
+    font-weight: bold;
+  }
+
+  &__new {
+    @include mdc-theme-prop(background-color, primary);
+    @include mdc-theme-prop(color, on-primary);
+
+    border-radius: 3px;
+    text-transform: uppercase;
+    height: auto;
+    padding: 0 8px;
+    margin: 8px auto 0 0;
+    font-size: 10px;
+    cursor: default;
+  }
+
+  &__content {
+    width: 100%;
+  }
+}

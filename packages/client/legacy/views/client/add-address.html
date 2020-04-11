@@ -1,0 +1,126 @@
+<style>
+  md-input-container {
+    display: block;
+  }
+
+  md-dialog#addAddressDialog md-input-container {
+    margin: 0 0;
+  }
+</style>
+
+<md-dialog id="addAddressDialog"
+           aria-label="add-address">
+
+  <form name="addressForm" layout="column" novalidate autocomplete="off">
+
+    <md-toolbar
+      class="md-dialog-content"
+      layout="row" layout-align="start center">
+
+      <div flex>
+        <span>{{ prettyMode }}</span>
+        <span ng-show="number">dados</span>
+        <span ng-hide="number">endereço</span>
+      </div>
+      <div flex-auto layout="row">
+        <md-icon flex class="help-tooltip" title="{{ helpContent }}">help</md-icon>
+        <md-switch flex ng-model="createAnother" aria-label="another"></md-switch>
+      </div>
+    </md-toolbar>
+
+    <md-dialog-content
+      class="md-dialog-content">
+
+      <div ng-show="showAllFields" flex>
+        <md-input-container>
+          <input
+            id="clientName" ng-model="client.name"
+            aria-label="clientName" name="clientName"
+            md-autofocus capitalize>
+          <label for="clientName">Nome do cliente</label>
+          <div ng-messages="addressForm.clientName.$error">
+            <div ng-message="required">Campo obrigatório</div>
+          </div>
+        </md-input-container>
+        <md-input-container>
+          <input
+            id="telephoneNumber" ng-model="telephone.number"
+            aria-label="telephoneNumber" name="telephoneNumber"
+            capitalize disabled ui-br-phone-number>
+          <label for="telephoneNumber">Número do telefone</label>
+          <div ng-messages="addressForm.telephoneNumber.$error">
+            <div ng-message="required">Campo obrigatório</div>
+          </div>
+        </md-input-container>
+      </div>
+
+      <div layout="row">
+        <md-input-container flex>
+          <input
+            name="streetName" required aria-label="streetName"
+            ng-model="address.streetName" capitalize>
+          <label>* Avenida, Rua, Beco, ...</label>
+
+          <div ng-messages="addressForm.streetName.$error">
+            <div ng-message="required">Campo obrigatório</div>
+          </div>
+        </md-input-container>
+
+        <md-input-container flex="25">
+          <input
+            name="number" aria-label="number"
+            ng-model="address.number">
+          <label>Número</label>
+        </md-input-container>
+
+        <md-input-container flex="25">
+          <input
+            name="block" aria-label="block"
+            ng-model="address.block" ui-number-mask="0" ui-hide-group-sep>
+          <label>Quadra</label>
+        </md-input-container>
+      </div>
+
+      <md-input-container>
+        <input
+          name="neighborhood" required aria-label="neighborhood"
+          ng-model="address.neighborhood" capitalize>
+        <label>* Bairro e/ou Conjunto</label>
+
+        <div ng-messages="addressForm.neighborhood.$error">
+          <div ng-message="required">Campo obrigatório</div>
+        </div>
+      </md-input-container>
+
+      <md-input-container ng-show="mode === 'edit' && address.details">
+        <input
+          name="details" aria-label="details"
+          ng-model="address.details" capitalize="first">
+        <label>Complemento</label>
+      </md-input-container>
+
+      <md-input-container class="minimal-input">
+        <input
+          name="referencePoint" aria-label="referencePoint"
+          ng-model="address.referencePoint" capitalize="first">
+        <label>Ponto de referência</label>
+      </md-input-container>
+    </md-dialog-content>
+
+    <md-dialog-actions>
+      <span class="md-caption" flex>* Campos obrigatórios</span>
+
+      <md-button
+        aria-label="cancel"
+        onclick="ga('send', 'event', 'views/client/add-address.html', 'ng-click', 'dismiss()');" ng-click="dismiss()">Cancelar
+      </md-button>
+      <md-button
+        aria-label="add"
+        class="md-accent"
+        ng-disabled="addressForm.$invalid"
+        ng-autodisable
+        onclick="ga('send', 'event', 'views/client/add-address.html', 'ng-click', 'add()');" ng-click="add()">Adicionar
+      </md-button>
+    </md-dialog-actions>
+  </form>
+</md-dialog>

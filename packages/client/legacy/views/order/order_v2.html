@@ -1,0 +1,121 @@
+<link rel="stylesheet" href="css/order.css">
+
+<div class="container" layout="column">
+
+  <md-card>
+
+    <md-card-content
+      id="client-data"
+      class="md-card-content">
+
+    </md-card-content>
+
+  </md-card>
+
+  <md-card id="order-card" flex layout="column">
+    <div class="action-bar" layout="row" layout-align="end center">
+      <!--<md-button-->
+        <!--onclick="ga('send', 'event', 'views/order/order_v2.html', 'ng-click', 'openSearchItem()');" ng-click="openSearchItem()"-->
+        <!--title="Adicionar item ao pedido"-->
+        <!--class="md-accent md-raised md-fab">-->
+        <!--<md-icon>add</md-icon>-->
+      <!--</md-button>-->
+    </div>
+
+    <md-contents layout="column"
+                 id="order-data" flex>
+
+      <div layout="row">
+
+        <md-button
+          title="Limpar os itens do pedido"
+          onclick="ga('send', 'event', 'views/order/order_v2.html', 'ng-click', 'resetOrder()');" ng-click="resetOrder()">
+          <md-icon>clear_all</md-icon>
+        </md-button>
+
+        <md-button
+          title="Alternar entre selecionados e todos"
+          aria-label="Alternar entre selecionados e todos"
+          onclick="ga('send', 'event', 'views/order/order_v2.html', 'ng-click', 'toggleView()');" ng-click="toggleView()">
+          <md-icon md-svg-icon="{{ isViewingAll() ? 'eye' : 'eye_denied' }}"></md-icon>
+        </md-button>
+
+        <md-button ng-init="viewSearchInput = false;"
+                   onclick="ga('send', 'event', 'views/order/order_v2.html', 'ng-click', 'viewSearchInput = !viewSearchInput;');"
+                   ng-click="viewSearchInput = !viewSearchInput;"
+                   title="Alternar a exibição do campo de busca">
+          <md-icon>search</md-icon>
+        </md-button>
+
+      </div>
+
+      <div id="search-container" layout="row" ng-show="viewSearchInput"
+           layout-align="center center" flex="none">
+        <form novalidate ng-submit="addItemToOrder(searchItemFound)"
+              layout="row" flex>
+          <md-input-container flex class="minimal-input">
+            <label for="query">Pesquisar por item</label>
+            <input id="query" ng-model="query" ng-focus="searchInputOnFocus()"
+                   autocomplete="off" md-autofocus>
+          </md-input-container>
+        </form>
+      </div>
+
+      <md-list id="order-search-item-add" flex
+               scroll="query"
+               src="itemsList"
+               map="mapOfSelectedItems">
+
+        <div ng-repeat="item in itemsList"
+             ng-init="initialize(item);" ng-show="item.visible">
+
+          <md-list-item
+            ng-class="{'color-indigo-500 accent': item.quantity > 0}"
+            layout="row" data-item-id="{{ item.itemId }}"
+            onclick="ga('send', 'event', 'views/order/order_v2.html', 'ng-click', 'addItemToOrder(item)');" ng-click="addItemToOrder(item)" md-no-ink>
+
+            <div tabindex="-1"
+                 ng-class="{'bg-default': item.quantity === 0,
+                            'bg-indigo-500 accent': item.quantity > 0}"
+                 class="avatar md-body-1" layout="row"
+                 layout-align="center center" onclick="ga('send', 'event', 'views/order/order_v2.html', 'ng-click', 'removeItemFromOrder($event, item)');" ng-click="removeItemFromOrder($event, item)">
+
+              <span ng-hide="item.quantity === 0">
+                {{ item.quantity }}
+              </span>
+
+            </div>
+            <div flex> {{ item.name }}</div>
+            <div>{{ item.total | currency }}</div>
+          </md-list-item>
+        </div>
+      </md-list>
+
+    </md-contents>
+  </md-card>
+
+  <md-card>
+    <md-card-content
+      id="payment-data"
+      layout="column"
+      class="md-card-content">
+
+      <div layout="row">
+        <div flex>Valor pago pelo cliente</div>
+        <strong>{{ order.paid | currency }}</strong>
+      </div>
+
+      <div layout="row">
+        <div flex>Total do pedido</div>
+        <strong>{{ order.total | currency }}</strong>
+      </div>
+
+      <div layout="row">
+        <div flex>Troco do cliente</div>
+        <strong>{{ order.paybackAmount | currency }}</strong>
+      </div>
+
+    </md-card-content>
+  </md-card>
+
+</div>

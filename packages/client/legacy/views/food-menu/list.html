@@ -1,0 +1,28 @@
+<style>
+    th.md-body-2 {
+        font-weight: bold;
+    }
+</style>
+
+<md-card class="table">
+
+    <md-card-content>
+        <table layout-fill>
+
+            <tbody>
+            <tr class="border-bottom md-body-2" layout-padding>
+                <th>Nome</th>
+                <th>Categoria</th>
+                <th>Valor</th>
+            </tr>
+            <tr ng-repeat="item in items" layout-padding
+                onclick="ga('send', 'event', 'views/food-menu/list.html', 'ng-click', 'edit(item)');" ng-click="edit(item)"
+                class="action-hover md-body-1">
+                <td>{{item.name}}</td>
+                <td>{{item.category.name}}</td>
+                <td>{{item.price|currency}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </md-card-content>
+</md-card>

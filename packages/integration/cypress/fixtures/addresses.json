@@ -1,0 +1,35 @@
+[
+  {
+    "addressId": 11,
+    "streetName": "Rua 41",
+    "block": null,
+    "number": "839",
+    "details": null,
+    "neighborhood": "Japiim I",
+    "referencePoint": "Prox. Ao Ponto Do Queijo 2",
+    "geolocation": null,
+    "clients": [
+      {
+        "clientId": 7,
+        "name": "Richard Lopes",
+        "createdAt": "2016-01-03T05:18:16.000Z",
+        "updatedAt": "2018-10-12T21:58:14.000Z",
+        "telephones": [
+          { "telephoneId": 2, "number": "92991095426", "clientId": 7 }
+        ],
+        "addresses": [
+          {
+            "addressId": 11,
+            "streetName": "Rua 41",
+            "block": null,
+            "number": "839",
+            "details": null,
+            "neighborhood": "Japiim I",
+            "referencePoint": "Prox. Ao Ponto Do Queijo 2",
+            "geolocation": null
+          }
+        ]
+      }
+    ]
+  }
+]

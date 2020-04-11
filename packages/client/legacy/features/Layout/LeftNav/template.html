@@ -1,0 +1,45 @@
+<md-sidenav
+  id="mainSideNav"
+  ng-hide="mPrintMode"
+  class="md-sidenav-left md-whiteframe-3dp sidenav md-hue-3"
+  md-component-id="sideNav"
+  md-is-locked-open="$mdMedia('gt-sm')"
+>
+  <a ui-sref="home">
+    <div layout="row" layout-padding layout-align="center center">
+      <img id="logo" alt="Full logo" src="css/img/full-logo.png" />
+    </div>
+  </a>
+
+  <md-divider class="light"></md-divider>
+
+  <md-content>
+    <ul class="left-nav__list">
+      <li
+        layout="row"
+        class="left-nav__item"
+        onclick="ga('send', 'event', 'views/partials/side.ejs', 'ng-click', 'defaultClickAction(item.click)');"
+        ng-click="defaultClickAction(item.click)"
+        ng-repeat="item in ctrl.items"
+      >
+        <a class="left-nav__link" ng-class="{ 'left-nav__link--notification': ctrl.getNotification(item) }"" flex ui-sref="{{ item.sref }}" layout-padding>
+          <div layout="row" layout-align="start center">
+            <md-icon class="left-nav__icon" ng-if="item.icon">{{
+              item.icon
+            }}</md-icon>
+
+            <span md-truncate>{{ item.label }}</span>
+  
+            <div ng-if="ctrl.getNotification(item)" class="left-nav__notification md-body-2">
+              {{ ctrl.getNotification(item) }}
+            </div>
+          </div>
+        </a>
+      </li>
+
+      <li class="left-nav__version">
+        {{ applicationService.version }}
+      </li>
+    </ul>
+  </md-content>
+</md-sidenav>

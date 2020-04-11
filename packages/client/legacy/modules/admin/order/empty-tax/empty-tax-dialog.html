@@ -1,0 +1,30 @@
+<md-dialog id="empty-tax" style="min-width: 500px;">
+  <md-toolbar
+    class="md-dialog-content"
+    layout="row" layout-align="start center">
+    Taxa de entrega
+  </md-toolbar>
+
+  <md-dialog-content class="md-dialog-content">
+
+    <md-input-container class="md-block">
+      <label for="neighborhood">Bairro/conjunto</label>
+      <input id="neighborhood" type="text" ng-model="taxCtrl.neighborhood" disabled>
+    </md-input-container>
+
+    <md-input-container class="md-block">
+      <label for="deliveryTaxValue">Valor</label>
+      <input id="deliveryTaxValue" type="text" ng-model="taxCtrl.deliveryTax" ui-money-mask>
+    </md-input-container>
+
+  </md-dialog-content>
+
+  <md-dialog-actions>
+    <md-checkbox flex class="minimal" ng-model="taxCtrl.shouldUpdate">
+      <div>Definir como padrão para <span class="u-dashed">{{ taxCtrl.neighborhood }}</span></div>
+    </md-checkbox>
+    <md-button onclick="ga('send', 'event', 'modules/admin/order/empty-tax/empty-tax-dialog.html', 'ng-click', 'taxCtrl.cancel()');" ng-click="taxCtrl.cancel()">Cancelar</md-button>
+    <md-button class="md-primary" onclick="ga('send', 'event', 'modules/admin/order/empty-tax/empty-tax-dialog.html', 'ng-click', 'taxCtrl.save()');" ng-click="taxCtrl.save()" ng-autodisable>Salvar</md-button>
+  </md-dialog-actions>
+
+</md-dialog>

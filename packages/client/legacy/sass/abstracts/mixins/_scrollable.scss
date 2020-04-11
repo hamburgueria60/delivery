@@ -1,0 +1,30 @@
+@mixin scrollable($bgColor) {
+  transition: background-color 0.5s;
+  background-color: rgba(0, 0, 0, 0);
+  -webkit-background-clip: text;
+  overflow: scroll;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.18);
+  }
+
+  &::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+    background: $bgColor;
+  }
+
+  &::-webkit-scrollbar-track {
+    display: none;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: inherit;
+  }
+}
+
+@mixin scrollable-content($bgColor) {
+  padding-left: 4px;
+  background: $bgColor;
+  min-height: 100%;
+}

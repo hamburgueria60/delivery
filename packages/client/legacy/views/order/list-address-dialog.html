@@ -1,0 +1,44 @@
+<style>
+    md-dialog {
+        width: 100%;
+    }
+</style>
+
+<md-dialog>
+
+    <md-toolbar
+        class="md-dialog-content"
+        layout="row" layout-align="start center">
+        Pesquisar endereço
+    </md-toolbar>
+
+    <md-list id="dialog-list-address" style="overflow: auto">
+        <md-list-item
+            style="cursor:inherit; padding-left: 16px;"
+            class="md-2-line"
+            ng-repeat="address in addresses"
+            ng-init="initAddressObject(address)">
+
+            <div class="md-list-item-text clickable"
+                 onclick="ga('send', 'event', 'views/order/list-address-dialog.html', 'ng-click', 'chooseAddress(address)');" ng-click="chooseAddress(address)">
+                <h3>{{ address | fullAddress:{referencePoint:false} }}</h3>
+
+                <p>
+                    <span ng-show="address.client.name">{{ address.client.name + ' - ' }}</span>
+                    <span ng-repeat="telephone in address.client.telephones track by $index">
+                        {{ telephone.number | phoneNumber }}
+                        <span ng-show="$index < address.client.telephones.length - 1"> - </span>
+                    </span>
+                </p>
+
+                <md-icon
+                    ng-show="order.address"
+                    class="md-secondary md-hue-3">
+                    keyboard_arrow_down
+                </md-icon>
+
+            </div>
+        </md-list-item>
+    </md-list>
+
+</md-dialog>

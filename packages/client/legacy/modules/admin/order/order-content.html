@@ -1,0 +1,115 @@
+<style>
+    .order-list-item .discount {
+        color: green;
+    }
+
+    .order-list-item .addition {
+        color: red;
+    }
+</style>
+
+<md-content layout="column"
+            id="order-data" flex>
+
+    <div layout="row" flex="none">
+
+        <md-button
+                title="Limpar os itens do pedido"
+                onclick="ga('send', 'event', 'modules/admin/order/order-content.html', 'ng-click', 'resetOrder(order)');" ng-click="resetOrder(order)">
+            <md-icon>clear_all</md-icon>
+        </md-button>
+
+        <md-button
+                title="Alternar entre mostrar somente os itens selecionados ou todos"
+                aria-label="Alternar entre mostrar somente os itens selecionados ou todos"
+                onclick="ga('send', 'event', 'modules/admin/order/order-content.html', 'ng-click', 'toggleOrderItemsVisibility(order)');" ng-click="toggleOrderItemsVisibility(order)">
+            <md-icon ng-show="isViewingAll()" md-svg-src="icons/ic_eye.svg"></md-icon>
+            <md-icon ng-show="!isViewingAll()" md-svg-icon="icons/ic_eye_denied.svg"></md-icon>
+        </md-button>
+
+        <md-button ng-init="viewSearchInput = true;"
+                   onclick="ga('send', 'event', 'modules/admin/order/order-content.html', 'ng-click', 'Mostrar/esconder busca de itens para o pedido');"
+                   ng-click="viewSearchInput = !viewSearchInput; order.search.query = ''"
+                   title="Mostrar/esconder busca de itens para o pedido">
+            <md-icon>search</md-icon>
+        </md-button>
+
+    </div>
+
+    <div class="search-container" layout="row"
+         ng-show="viewSearchInput" focus-on-show
+         layout-align="center center" flex="none">
+
+        <form novalidate ng-submit="addItemToOrder(order.search.filteredItems[0], order)"
+              layout="row" flex>
+            <md-input-container flex class="minimal-input margin">
+                <label for="query">Pesquisar por item</label>
+                <input id="query" ng-model="order.search.query" ng-focus="showItemsWhenFocused(order)"
+                       autocomplete="off" md-autofocus>
+            </md-input-container>
+        </form>
+    </div>
+
+    <md-list id="order-search-item-add" flex>
+        <div ng-repeat="item in order.search.filteredItems" ng-show="item.visible">
+
+            <md-list-item
+                    ng-class="{'color-indigo-500 accent': item.quantity > 0}"
+                    ng-mouseover="item.showDetailsAction = item.quantity > 0"
+                    ng-mouseleave="item.showDetailsAction = false"
+                    layout="row" data-item-id="{{ item.itemId }}"
+                    md-no-ink>
+
+                <div tabindex="-1" style=""
+                     ng-class="{'bg-grey-200': item.quantity === 0, 'bg-indigo-500 accent': item.quantity > 0}"
+                     class="avatar md-body-1" layout="row"
+                     layout-align="center center" onclick="ga('send', 'event', 'modules/admin/order/order-content.html', 'ng-click', 'removeItemFromOrder(item, order)');" ng-click="removeItemFromOrder(item, order)">
+
+                    <span ng-hide="item.quantity === 0">
+                        {{ item.quantity }}
+                    </span>
+
+                </div>
+
+                <div class="order-list-item"
+                     layout="row" layout-align="start center" flex>
+
+                    <div flex onclick="ga('send', 'event', 'modules/admin/order/order-content.html', 'ng-click', 'addItemToOrder(item, order, {showDetailsAction: true})');" ng-click="addItemToOrder(item, order, {showDetailsAction: true})">
+                        {{ item.name }}
+                        <md-icon
+                                title="Adicionar detalhes ao item"
+                                class="clickable" ng-show="item.showDetailsAction"
+                                onclick="ga('send', 'event', 'modules/admin/order/order-content.html', 'ng-click', 'showAddDetailsDialog(item, order, $event)');" ng-click="showAddDetailsDialog(item, order, $event)">
+                            speaker_notes
+                        </md-icon>
+                        <br>
+
+                        <div class="md-caption item-details"
+                             style="line-height: normal">
+                            {{ item.details }}
+                        </div>
+                    </div>
+                    <div>
+                        <span title="Acréscimo"
+                              class="addition"
+                              ng-show="item.addition">
+                            +{{item.addition|currency}}
+                        </span>
+                        <span title="Desconto"
+                              class="discount"
+                              ng-show="item.discount">
+                            -{{item.discount|currency}}
+                        </span>
+                        {{ item.total | currency }}
+                    </div>
+
+                    <!--<md-button class="md-icon-button md-accent">-->
+
+                    <!--</md-button>-->
+
+                </div>
+
+            </md-list-item>
+        </div>
+    </md-list>
+</md-content>

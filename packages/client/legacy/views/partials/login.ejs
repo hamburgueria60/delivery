@@ -1,0 +1,49 @@
+<link rel="stylesheet" href="../../css/login.css">
+
+<body ng-controller="AuthController" layout="row">
+
+<div id="main-container" ng-show="isLoaded" flex ng-cloak
+     ng-init="init('<%= JSON.stringify(error) %>')"
+     layout="row" layout-align="center center">
+
+    <div id="wrap-container">
+        <div id="login-container" layout="row">
+            <form id="credentials" ng-submit="login()"
+                  autocomplete="off" flex="60">
+                <span class="title">Portal de acesso</span>
+
+                <p class="text" ng-if="!feedback">Informe suas credenciais de acesso</p>
+                <p class="text text-warning" ng-if="feedback">
+                    ({{feedback.statusCode}}) {{feedback.code}}
+                </p>
+
+                <p layout="row" class="input-container">
+                    <md-icon class="left-icon">person</md-icon>
+
+                    <input id="identity" name="identity" flex
+                           type="text" placeholder="Usuário"
+                           ng-model="auth.identity">
+
+                    <span class="left-border"></span>
+                </p>
+                <p layout="row" class="input-container">
+                    <md-icon class="left-icon">lock</md-icon>
+                    <input id="password" name="password" flex
+                           type="password" placeholder="Senha"
+                           ng-model="auth.password">
+
+                    <span class="left-border"></span>
+                </p>
+                <md-button id="login-btn" class="md-raised" type="submit">
+                    Entrar
+                </md-button>
+            </form>
+            <div layout="row" layout-align="center center" flex="40">
+                <img src="../../css/img/full-logo.png" alt="Hamburgueria 60"
+                     class="h60-logo">
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>

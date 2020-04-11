@@ -1,0 +1,1 @@
+web: yarn workspace @hamburgueria60/delivery-client build

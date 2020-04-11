@@ -1,0 +1,82 @@
+@page {
+    size: auto;
+    margin: 0mm;
+}
+
+#order {
+    width: 105mm;
+    height: 149mm;
+    text-transform: uppercase;
+}
+
+#order .logo {
+    text-align: center;
+    display: block;
+}
+
+/*#order .logo {*/
+/*text-align: center;*/
+/*display: none;*/
+/*}*/
+
+#order .logo img {
+    height: 50px;
+}
+
+#order * {
+    font-family: monospace;
+    /*white-space: pre-wrap;*/
+}
+
+@media print {
+    body {
+        background: none;
+    }
+
+    #mainSideNav, #mainToolbar {
+        display: none !important;
+    }
+
+    #order {
+        font-size: 10pt;
+        overflow: hidden;
+        padding-left: 0.5cm !important;
+        padding-top: 0.5cm !important;
+        padding-right: 1cm !important;
+        padding-bottom: 1.5cm !important;
+    }
+
+    #order .logo {
+        text-align: center;
+        display: block;
+    }
+}
+
+/*@page {*/
+/*size: A4;*/
+/*margin: 0mm;*/
+/*}*/
+
+/*#order {*/
+/*font-family: monospace;*/
+/*white-space: pre;*/
+/*}*/
+
+/*body {*/
+/*background: none;*/
+/*}*/
+
+/*!*@media print and (width: 105mm) and (height: 148.5mm) {*!*/
+/*!*@page {*!*/
+/*!*margin: 3cm;*!*/
+/*!*}*!*/
+/*!*}*!*/
+
+/*!*@media print {*!*/
+/*!*body {*!*/
+/*!*width: 105mm; !*width of index card*!*!*/
+/*!*height: 148.5mm; !*height of index card*!*!*/
+/*!*margin: 3mm 3mm 3mm 3mm;*!*/
+/*!*background: none;*!*/
+/*!*}*!*/
+/*!*}*!*/

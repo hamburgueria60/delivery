@@ -1,0 +1,94 @@
+<style>
+  #payment-data .b-spacing {
+    margin-bottom: 16px;
+  }
+
+  #payment-data .u-spacing {
+    margin-top: 16px;
+  }
+
+  #payment-data md-icon {
+    color: inherit;
+  }
+</style>
+
+<div layout="row">
+  <md-card
+    id="tax"
+    class="clickable"
+    flex
+    onclick="ga('send', 'event', 'modules/admin/order/checkout/checkout.html', 'ng-click', 'associateTaxToTheAddress(order)');"
+    ng-click="associateTaxToTheAddress(order)"
+  >
+    <md-card-content layout="row" layout-align="left center" layout-fill>
+      <div class="avatar" layout="row" layout-align="center center">
+        <md-icon>motorcycle</md-icon>
+      </div>
+      <div layout="column">
+        <div class="md-body-1" ng-if="order.deliveryTax === null && order.address.neighborhood">
+          <div>{{order.address.neighborhood}}</div>
+          <div id="add-delivery-tax">Adicionar taxa de entrega</div>
+        </div>
+
+        <span class="md-body-1" ng-if="order.deliveryTax === null && !order.address.neighborhood">
+          Selecione o endereço para entrega
+        </span>
+
+        <div ng-if="order.deliveryTax !== null">
+          <div class="md-body-1">{{ order.address.neighborhood }}</div>
+          <div><strong>{{ order.deliveryTax | currency }}</strong></div>
+        </div>
+      </div>
+    </md-card-content>
+  </md-card>
+
+  <md-card
+    id="paidAmount"
+    class="clickable"
+    onclick="ga('send', 'event', 'modules/admin/order/checkout/checkout.html', 'ng-click', 'showChangePaidDialog(order)');"
+    ng-click="showChangePaidDialog(order)"
+    flex
+  >
+    <md-card-content layout="row" layout-align="left center" layout-fill>
+      <div class="avatar" layout="row" layout-align="center center">
+        <md-icon>face</md-icon>
+      </div>
+      <div layout="column">
+        <span class="md-body-1">Pago pelo cliente</span>
+        <strong id="create-order-paid-amount-value">{{ order.paidAmount | currency }}</strong>
+      </div>
+    </md-card-content>
+  </md-card>
+
+  <md-card id="paybackAmount" flex ng-class="{'transparent': order.paidAmount <= 0}">
+    <md-card-content layout="row" layout-align="left center" layout-fill>
+      <div class="avatar" layout="row" layout-align="center center">
+        <md-icon>reply</md-icon>
+      </div>
+      <div layout="column">
+        <span>Troco do cliente</span>
+        <strong
+          ng-class="{
+            'color-red-500':order.paybackAmount<0,
+            'color-green-500':order.paybackAmount>0
+          }"
+        >
+          {{ order.paybackAmount | currency }}
+        </strong>
+      </div>
+    </md-card-content>
+  </md-card>
+
+  <md-card id="total" flex>
+    <md-card-content layout="row" layout-align="left center" layout-fill>
+      <div class="avatar" layout="row" layout-align="center center">
+        <md-icon>attach_money</md-icon>
+      </div>
+      <div layout="column">
+        <span class="md-body-1">Total do pedido</span>
+        <strong id="create-order-total-amount">{{ order.total | currency }}</strong>
+      </div>
+      <span></span>
+    </md-card-content>
+  </md-card>
+</div>

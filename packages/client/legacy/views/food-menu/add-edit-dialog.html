@@ -1,0 +1,50 @@
+<style>
+</style>
+<md-dialog style="min-width: 400px">
+    <md-toolbar
+        class="md-dialog-content"
+        layout="row" layout-align="start center">
+        {{title}}
+    </md-toolbar>
+    <md-dialog-content
+        class="md-dialog-content">
+
+        <md-input-container class="block">
+            <label for="name">Nome</label>
+            <input id="name" name="name" ng-model="item.name">
+        </md-input-container>
+
+        <div layout="row">
+            <md-input-container>
+                <label>Categoria</label>
+                <md-select ng-model="item.categoryId">
+                    <md-option ng-repeat="category in categories" value="{{category.categoryId}}">
+                        {{category.name}}
+                    </md-option>
+                </md-select>
+            </md-input-container>
+
+            <md-input-container>
+                <label for="price">Valor</label>
+                <input id="price" name="price" ng-model="item.price" ui-money-mask>
+            </md-input-container>
+        </div>
+
+    </md-dialog-content>
+
+    <md-dialog-actions>
+        <div flex>
+            <md-button onclick="ga('send', 'event', 'views/food-menu/add-edit-dialog.html', 'ng-click', 'delete()');" ng-click="delete()">
+                Remover
+            </md-button>
+        </div>
+        <md-button onclick="ga('send', 'event', 'views/food-menu/add-edit-dialog.html', 'ng-click', 'dismiss()');" ng-click="dismiss()">
+            Cancelar
+        </md-button>
+        <md-button
+            onclick="ga('send', 'event', 'views/food-menu/add-edit-dialog.html', 'ng-click', 'save()');" ng-click="save()"
+            class="md-primary">
+            Salvar
+        </md-button>
+    </md-dialog-actions>
+</md-dialog>

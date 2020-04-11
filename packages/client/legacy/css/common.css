@@ -1,0 +1,90 @@
+/* general common styles ---------------------------------------*/
+
+.border-bottom {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.pointer, .clickable {
+    cursor: pointer !important;
+}
+
+.clickable:hover {
+    opacity: 0.75;
+}
+
+.default-cursor, .default-cursor * {
+    cursor: inherit;
+}
+
+.help-tooltip {
+    cursor: help;
+}
+
+md-icon svg {
+    fill: inherit;
+}
+
+div.container {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+content {
+    display: block;
+    margin: 16px;
+}
+
+.avatar {
+    min-width: 40px;
+    width: 40px;
+    height: 40px;
+    color: black;
+    border-radius: 50%;
+    text-align: center;
+    margin-right: 16px;
+}
+
+.avatar.bg-default {
+    background: #eee;
+}
+
+.avatar.bg-white {
+    background: white;
+}
+
+.avatar.avatar-list-item {
+    margin: auto;
+    margin-right: 16px;
+    vertical-align: middle;
+    justify-content: center;
+    align-items: center;
+    display: inherit;
+}
+
+span.disabled {
+    color: rgba(0, 0, 0, 0.35);
+}
+
+button.block-button md-icon {
+    padding-top: 8px;
+    display: block;
+}
+
+md-divider.light {
+    border-top-color: rgba(255, 255, 255, 0.12);
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+.block {
+    display: block;
+}
+
+.m-b-15 {
+    margin-bottom: 15px;
+}
+
+.m-t-15 {
+    margin-top: 15px;
+}
