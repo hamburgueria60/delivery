@@ -1,0 +1,14 @@
+{
+  "name": "Dashboard",
+  "plural": "Dashboard",
+  "base": "Model",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {},
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

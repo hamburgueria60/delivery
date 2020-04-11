@@ -1,0 +1,56 @@
+<style>
+  md-dialog#itemDetails {
+    min-width: 50%;
+  }
+
+  .block {
+    display: block;
+  }
+</style>
+
+<md-dialog id="itemDetails">
+
+  <md-toolbar
+    class="md-dialog-content"
+    layout="row" layout-align="start center">
+    {{ title }}
+  </md-toolbar>
+
+  <md-dialog-content class="md-dialog-content">
+
+    <form ng-submit="addDetails()">
+      <md-input-container class="block minimal-input">
+        <label>Adicione detalhes ao item selecionado</label>
+        <input md-auto-focus ng-model="details.description" capitalize
+               placeholder="Ex.: calabresa ou sem cebola."/>
+      </md-input-container>
+
+      <div layout="row">
+        <md-input-container class="block minimal-input" flex>
+          <label>Acréscimo</label>
+          <input autofocus ng-model="details.addition" ui-money-mask
+                 placeholder="Valor acrescentado ao item."/>
+        </md-input-container>
+
+        <md-input-container class="block minimal-input" flex>
+          <label>Desconto</label>
+          <input autofocus ng-model="details.discount" ui-money-mask
+                 placeholder="Valor descontado do item."/>
+        </md-input-container>
+      </div>
+    </form>
+
+  </md-dialog-content>
+
+  <md-dialog-actions>
+    <md-button
+      aria-label="cancel"
+      onclick="ga('send', 'event', 'modules/admin/order/item-details.dialog.html', 'ng-click', 'hide()');" ng-click="hide()">Cancelar
+    </md-button>
+    <md-button
+      aria-label="save" class="md-primary"
+      onclick="ga('send', 'event', 'modules/admin/order/item-details.dialog.html', 'ng-click', 'addDetails()');" ng-click="addDetails()">Salvar
+    </md-button>
+  </md-dialog-actions>
+
+</md-dialog>

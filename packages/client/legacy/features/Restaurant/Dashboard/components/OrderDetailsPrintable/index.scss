@@ -1,0 +1,19 @@
+@page {
+  margin: 0;
+  size: A4;
+}
+
+@media print {
+  html,
+  body {
+    width: 105mm;
+    height: 149mm;
+  }
+}
+
+.restaurant-dashboard-order-details-printable {
+  width: 105mm;
+  height: 149mm;
+  padding: 24px 16px;
+  box-sizing: border-box;
+}

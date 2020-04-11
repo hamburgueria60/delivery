@@ -1,0 +1,17 @@
+{
+  "name": "@hamburgueria60/delivery",
+  "version": "1.0.0",
+  "private": true,
+  "repository": "git@github.com:hamburgueria60/delivery.git",
+  "license": "MIT",
+  "author": "Richard Lopes <richard.lopes92@gmail.com>",
+  "main": "index.js",
+  "workspaces": [
+    "packages/*"
+  ],
+  "engines": {
+    "node": "12.16.1",
+    "npm": "6.13",
+    "yarn": "1.22.4"
+  }
+}

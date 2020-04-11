@@ -1,0 +1,85 @@
+<style>
+  label {
+    white-space: nowrap !important;
+  }
+</style>
+
+<md-dialog style="min-width: 500px">
+  <md-toolbar class="md-dialog-content" layout="row" layout-align="start center">
+    Valor pago pelo cliente
+  </md-toolbar>
+
+  <md-dialog-content ng-init="payment.showCustomAmountView = false" class="md-dialog-content">
+    <div id="presetValues" ng-hide="payment.showCustomAmountView">
+      <p class="md-caption">Escolha um valor pré-definido:</p>
+
+      <paid-amount
+        layout="row"
+        layout-align="center center"
+        current-paid-amount="{{ payment.paidAmount }}"
+      >
+        <paid-amount-option
+          amount="10"
+          when-select="payment.setPaidAmount($paidAmount)"
+        ></paid-amount-option>
+        <paid-amount-option
+          amount="20"
+          when-select="payment.setPaidAmount($paidAmount)"
+        ></paid-amount-option>
+        <paid-amount-option
+          amount="50"
+          when-select="payment.setPaidAmount($paidAmount)"
+        ></paid-amount-option>
+        <paid-amount-option
+          amount="100"
+          when-select="payment.setPaidAmount($paidAmount)"
+        ></paid-amount-option>
+      </paid-amount>
+    </div>
+
+    <form id="customValue" layout="row" novalidate ng-show="payment.showCustomAmountView">
+      <md-input-container layout-fill class="minimal-input">
+        <label for="paidValue">
+          Digite o valor pago pelo cliente
+        </label>
+        <input
+          id="paidValue"
+          md-auto-focus
+          ng-model="payment.amount"
+          ui-money-mask
+          autocomplete="off"
+        />
+      </md-input-container>
+    </form>
+  </md-dialog-content>
+
+  <md-dialog-actions>
+    <div ng-show="!payment.showCustomAmountView" layout="row">
+      <div flex>
+        <md-button
+          title="Escolher um valor pago específico."
+          aria-label="cancel"
+          onclick="ga('send', 'event', 'modules/admin/order/paid-amount/paid-amount.dialog.html', 'ng-click', 'payment.showCustomAmountView = true');"
+          ng-click="payment.showCustomAmountView = true"
+          >Outro valor
+        </md-button>
+      </div>
+      <md-button
+        id="paid-amount-exact-value"
+        title="O cliente decide pagar o valor exato do pedido. Não haverá troco."
+        aria-label="cancel"
+        onclick="ga('send', 'event', 'modules/admin/order/paid-amount/paid-amount.dialog.html', 'ng-click', 'payment.setPaidAmountToTotal()');"
+        ng-click="payment.setPaidAmountToTotal()"
+        >Valor exato
+      </md-button>
+    </div>
+    <md-button
+      aria-label="cancel"
+      class="md-accent"
+      onclick="ga('send', 'event', 'modules/admin/order/paid-amount/paid-amount.dialog.html', 'ng-click', 'payment.saveCustomValue()');"
+      ng-click="payment.saveCustomValue()"
+      ng-show="payment.showCustomAmountView"
+      >Confirmar
+    </md-button>
+  </md-dialog-actions>
+</md-dialog>

@@ -1,0 +1,56 @@
+<style>
+  #title {
+    margin-right: 25px;
+  }
+</style>
+
+<md-dialog
+  aria-label="add-address">
+
+  <md-toolbar
+    class="md-dialog-content"
+    layout="row" layout-align="start center">
+
+    <span id="title" flex>{{ prettyMode }} telefone</span>
+    <div flex-auto layout="row">
+
+      <md-icon flex class="help-tooltip" title="{{ helpContent }}">help</md-icon>
+      <md-switch flex ng-model="createAnother" aria-label="another"></md-switch>
+    </div>
+  </md-toolbar>
+
+  <md-dialog-content
+    class="md-dialog-content">
+
+    <form
+      name="telephoneForm" layout="column"
+      novalidate>
+
+      <div layout="row">
+        <md-input-container flex>
+          <input
+            name="number" required aria-label="number" md-autofocus
+            ng-model="telephone.number" ui-br-phone-number>
+          <label>Número</label>
+          <div ng-messages="telephoneForm.number.$error">
+            <div ng-message="required">Campo obrigatório</div>
+          </div>
+        </md-input-container>
+      </div>
+
+    </form>
+  </md-dialog-content>
+
+  <md-dialog-actions>
+    <md-button
+      aria-label="cancel"
+      onclick="ga('send', 'event', 'views/client/add-telephone.html', 'ng-click', 'dismiss()');" ng-click="dismiss()">Cancelar
+    </md-button>
+    <md-button
+      aria-label="add"
+      class="md-accent"
+      ng-disabled="telephoneForm.$invalid"
+      onclick="ga('send', 'event', 'views/client/add-telephone.html', 'ng-click', 'add()');" ng-click="add()">Adicionar
+    </md-button>
+  </md-dialog-actions>
+</md-dialog>

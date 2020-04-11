@@ -1,0 +1,60 @@
+<form
+  autocomplete="off" name="searchForm"
+  id="find-address" class="mr-xs" ng-submit="search()"
+  layout="row" layout-align="center center flex">
+
+  <div layout="row" layout-padding layout-align="center center">
+    <md-button class="md-raised md-icon-button"
+               title="Buscar por telefone"
+               ng-class="{'md-primary': $ctrl.searchManager.searchType == PHONE}"
+               onclick="ga('send', 'event', 'modules/admin/order/find-address/find-address-input.html', 'ng-click', 'switchTo(PHONE)');" ng-click="switchTo(PHONE)">
+      <md-icon>phone</md-icon>
+    </md-button>
+    <md-button class="md-raised md-icon-button"
+               title="Buscar por address"
+               ng-class="{'md-primary': $ctrl.searchManager.searchType == ADDRESS}"
+               onclick="ga('send', 'event', 'modules/admin/order/find-address/find-address-input.html', 'ng-click', 'switchTo(ADDRESS)');" ng-click="switchTo(ADDRESS)">
+      <md-icon>home</md-icon>
+    </md-button>
+    <md-button class="md-raised md-icon-button"
+               title="Buscar por nome"
+               ng-class="{'md-primary': $ctrl.searchManager.searchType == NAME}"
+               onclick="ga('send', 'event', 'modules/admin/order/find-address/find-address-input.html', 'ng-click', 'switchTo(NAME)');" ng-click="switchTo(NAME)">
+      <md-icon>person</md-icon>
+    </md-button>
+
+    <md-button title="Para retirar" class="md-raised md-icon-button" ng-class="{'md-primary': $ctrl.searchManager.searchType === TAKEOUT}" ng-click="switchTo(TAKEOUT)">
+      <md-icon md-svg-icon="takeout"></md-icon>
+    </md-button>
+  </div>
+
+  <div flex>
+
+    <md-input-container layout-fill class="minimal-input"
+                        ng-if="$ctrl.searchManager.searchType == PHONE">
+      <input id="phoneSearchType" type="text"
+             ng-disabled="!$ctrl.searchManager.searchType" ng-model="$ctrl.searchManager.query"
+             ui-br-phone-number aria-label="phoneSearchType">
+      <label for="phoneSearchType" Digite o número de telefone>Digite o telefone</label>
+    </md-input-container>
+
+    <md-input-container layout-fill class="minimal-input"
+                        ng-if="$ctrl.searchManager.searchType == ADDRESS">
+      <input id="addressSearchType" type="text"
+             ng-disabled="!$ctrl.searchManager.searchType" ng-model="$ctrl.searchManager.query"
+             aria-label="addressSearchType">
+      <label for="addressSearchType">
+        Digite o endereço (rua, bairro, número, quadra, ponto de referência, complemento)
+      </label>
+    </md-input-container>
+
+    <md-input-container layout-fill class="minimal-input"
+                        ng-if="$ctrl.searchManager.searchType == NAME">
+      <input id="clientSearchType" type="text"
+             ng-disabled="!$ctrl.searchManager.searchType" ng-model="$ctrl.searchManager.query"
+             aria-label="clientSearchType">
+      <label for="clientSearchType">Digite o nome do cliente</label>
+    </md-input-container>
+
+  </div>
+</form>

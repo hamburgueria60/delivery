@@ -1,0 +1,12 @@
+<style>
+  .no-border-focus, .no-border-focus * {
+    outline: 0;
+  }
+</style>
+
+<div id="client-data" class="mt-xxs no-border-focus">
+  <find-address default="phone"
+                ng-model="order.address"
+                when-reset="detachAddressFromOrder(order)"
+                when-done="attachAddressToOrder($address, $phone, order)"></find-address>
+</div>

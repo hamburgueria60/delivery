@@ -1,0 +1,64 @@
+<style>
+    md-dialog {
+        width: 100%;
+    }
+</style>
+
+<md-dialog>
+
+    <md-toolbar
+        class="md-dialog-content"
+        layout="row" layout-align="start center">
+        Pesquisar contato
+    </md-toolbar>
+
+    <md-dialog-content
+        layout="column"
+        style="overflow: hidden"
+        class="md-dialog-content">
+        <span class="md-caption">
+            <md-icon>help</md-icon>
+            Utilize busca abaixo para associar o número
+            {{number | phoneNumber}}
+            a um contato:
+        </span>
+
+        <form novalidate ng-submit="searchClient()">
+            <md-input-container class="minimal-input block">
+                <input id="searchClientInput" ng-model="searchClientQuery" autocomplete="off">
+                <label for="searchClientInput">Nome, endereço ou telefone</label>
+            </md-input-container>
+        </form>
+
+        <md-list id="dialog-list-telephone" flex
+                 style="overflow: auto">
+            <md-list-item
+                style="cursor:inherit;"
+                class="md-2-line md-list-item"
+                onclick="ga('send', 'event', 'views/order/search-client-dialog.html', 'ng-click', 'associateTo(client)');" ng-click="associateTo(client)"
+                ng-repeat="client in clients">
+
+                <div class="md-list-item-text clickable">
+                    <h3 ng-show="client.name !== null">{{client.name}}</h3>
+
+                    <h3 ng-show="client.name === null">
+                        <span ng-repeat="telephone in client.telephones track by $index">
+                            {{ telephone.number | phoneNumber }}
+                            <span ng-show="$index <  client.telephones.length - 1"> | </span>
+                        </span>
+                    </h3>
+
+                    <p>
+                        {{ client.addresses[0] | fullAddress:{referencePoint:false} }} <br/>
+                        <span
+                            ng-show="client.name !== null"
+                            ng-repeat="telephone in client.telephones track by $index">
+                            {{ telephone.number | phoneNumber }}
+                            <span ng-show="$index <  client.telephones.length - 1"> | </span>
+                        </span>
+                    </p>
+                </div>
+            </md-list-item>
+        </md-list>
+    </md-dialog-content>
+</md-dialog>

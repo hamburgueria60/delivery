@@ -1,0 +1,45 @@
+<style>
+    th.md-body-2 {
+        font-weight: bold;
+    }
+</style>
+
+<md-card ng-show="mOption">
+    <md-card-content
+        class="md-card-content">
+
+        <span class="md-body-2">
+            Exibindo {{ list.length }} resultados da busca
+            <span>
+                por <strong>{{ mOption | optionLabel:options }}</strong>
+            </span>
+        </span>
+
+    </md-card-content>
+</md-card>
+
+<pagination pagination-source="list">
+    <pagination-control></pagination-control>
+    <md-card class="table">
+        <md-card-content>
+            <table layout-fill>
+
+                <tbody>
+                <tr class="border-bottom" layout-padding>
+                    <th class="md-body-2">Nome</th>
+                    <th class="md-body-2">Endereço</th>
+                    <th class="md-body-2">Telefone</th>
+                </tr>
+
+                <tr ng-repeat="client in list.slice($pagination.skip, $pagination.limit)" class="action-hover md-body-1"
+                    layout-padding onclick="ga('send', 'event', 'views/client/list.html', 'ng-click', 'details(client)');" ng-click="details(client)">
+
+                    <td>{{ client.name }}</td>
+                    <td class="wrap">{{ client.addresses[0] | fullAddress }}</td>
+                  <td><span> {{ client.telephones[0].number | phoneNumber }}</span></td>
+                </tr>
+                </tbody>
+            </table>
+        </md-card-content>
+    </md-card>
+</pagination>

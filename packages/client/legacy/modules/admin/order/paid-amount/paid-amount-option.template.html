@@ -1,0 +1,7 @@
+{{ amountPaidOptions }}
+
+<md-button
+  ng-class="{'md-accent md-raised': optionCtrl.isChecked }"
+  onclick="ga('send', 'event', 'modules/admin/order/paid-amount/paid-amount-option.template.html', 'ng-click', 'setCurrentPaidAmount(amount)');" ng-click="setCurrentPaidAmount(amount)">
+  {{ amount | currency}}
+</md-button>

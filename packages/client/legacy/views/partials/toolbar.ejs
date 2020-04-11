@@ -1,0 +1,20 @@
+
+<div ng-repeat="btn in items track by $index ">
+
+  <md-button
+    class="md-icon-button"
+    aria-label="{{ btn.label }}"
+    ng-hide="btn.divider || btn.hidden"
+    ng-disabled="btn.disabled"
+    onclick="ga('send', 'event', 'views/partials/toolbar.ejs', 'ng-click', 'btn.click()');" ng-click="btn.click()"
+    title="{{ btn.label }}">
+    <md-icon ng-show="btn.svg" md-svg-icon="{{ btn.svg }}"></md-icon>
+    <md-icon ng-show="btn.icon">{{ btn.icon }}</md-icon>
+    <!--<md-icon ng-show="btn.icon" md-font-icon="fa-{{btn.icon}}" class="fa"></md-icon>-->
+  </md-button>
+
+  <md-divider
+    ng-show="btn.divider"
+    class="vertical-divider"></md-divider>
+
+</div>
