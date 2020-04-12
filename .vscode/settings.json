@@ -9,11 +9,11 @@
   "eslint.enable": true,
   "eslint.workingDirectories": [
     {
-      "directory": "./server",
+      "directory": "./packages/server",
       "changeProcessCWD": true
     },
     {
-      "directory": "./client",
+      "directory": "./packages/client",
       "changeProcessCWD": true
     }
   ],

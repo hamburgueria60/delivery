@@ -5,7 +5,7 @@ import { html } from '~/utils/html'
 const container = css`
   position: relative;
 `
-const icon = primary => css`
+const icon = (primary) => css`
   position: absolute;
   margin-left: 0.5rem;
 
@@ -13,7 +13,7 @@ const icon = primary => css`
     color: ${primary};
   }
 `
-const input = primary => css`
+const input = (primary) => css`
   padding: 0.75rem;
   padding-left: 2.25rem;
   border: none;
@@ -22,7 +22,7 @@ const input = primary => css`
   }
 `
 
-const inputWithIcon = $colors => ({
+const inputWithIcon = ($colors) => ({
   scope: { placeholder: '@', icon: '@', type: '@' },
   template: html`
     <div class="${container}" md-theme="default" layout="row" layout-align="start center">
