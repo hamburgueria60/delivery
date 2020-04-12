@@ -7,6 +7,7 @@ import animate from 'angular-animate'
 import aria from 'angular-aria'
 import material from 'angular-material'
 import messages from 'angular-messages'
+import ocLazyLoad from 'oclazyload'
 
 import floating from './components/floating'
 import panel from './components/panel'
@@ -16,6 +17,19 @@ import login from './pages/login'
 import redirect from './pages/redirect'
 import colors from './services/colors'
 
-angular.module('app', [material, animate, aria, messages, theme, colors, router, floating, panel, login, redirect])
+angular.module('app', [
+  ocLazyLoad,
+  material,
+  animate,
+  aria,
+  messages,
+  theme,
+  colors,
+  router,
+  floating,
+  panel,
+  login,
+  redirect,
+])
 
 angular.bootstrap(document.querySelector('#root'), ['app'])

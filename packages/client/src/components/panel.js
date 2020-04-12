@@ -15,7 +15,7 @@ const panel = () => ({
   transclude: true,
   template: html`
     <div class="${spacing}">
-      <div class="${background}" md-whiteframe="4">
+      <div class="${background}" md-whiteframe="1">
         <ui-view></ui-view>
       </div>
     </div>

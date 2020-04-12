@@ -3,6 +3,7 @@ import angular from 'angular'
 
 import background from '~/pages/background'
 import login from '~/pages/login'
+import lazyLoad from '~/services/lazy-load'
 import { html } from '~/utils/html'
 
 export default angular
@@ -26,6 +27,7 @@ export default angular
 
     $stateProvider.state('root.panel.home', {
       url: 'home',
-      template: html`Home`,
+      template: html`<home></home>`,
+      ...lazyLoad(() => import('~/pages/home')),
     })
   }).name
