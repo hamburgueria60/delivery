@@ -7,6 +7,7 @@ module.exports = {
     _: true,
     StringMask: true,
   },
+  parser: 'babel-eslint',
   settings: {
     'import/resolver': {
       parcel: { rootDir: 'src' },
