@@ -8,11 +8,14 @@ import aria from 'angular-aria'
 import material from 'angular-material'
 import messages from 'angular-messages'
 
+import floating from './components/floating'
+import panel from './components/panel'
+import router from './config/router'
 import theme from './config/theme'
 import login from './pages/login'
-import apiService from './services/api/api.service'
-import colorService from './services/colors.service'
+import redirect from './pages/redirect'
+import colors from './services/colors'
 
-angular.module('app', [material, animate, aria, messages, theme, colorService, login, apiService])
+angular.module('app', [material, animate, aria, messages, theme, colors, router, floating, panel, login, redirect])
 
 angular.bootstrap(document.querySelector('#root'), ['app'])

@@ -34,7 +34,7 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['src/utils/**/*.js'],
+      files: ['src/utils/**/*.js', 'src/services/**/*.js'],
       rules: {
         'import/prefer-default-export': 'off',
       },
