@@ -29,6 +29,7 @@
     "emotion": "^10.0.27",
     "lodash": "^4.17.15",
     "luxon": "^1.17.1",
+    "oclazyload": "^1.1.0",
     "reset-css": "^5.0.1",
     "shortid": "^2.2.14",
     "underscore": "^1.8.3"
@@ -47,6 +48,7 @@
     "babel-plugin-transform-inline-environment-variables": "^0.4.3",
     "eslint": "^6.8.0",
     "eslint-import-resolver-parcel": "^1.10.4",
-    "parcel-bundler": "^1.12.4"
+    "parcel-bundler": "^1.12.4",
+    "parcel-plugin-purgecss": "^2.1.3"
   }
 }
