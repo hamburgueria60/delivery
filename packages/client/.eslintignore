@@ -1,8 +1,0 @@
-!.eslintrc.js
-!.prettierrc.js
-build
-dist
-node_modules
-external
-legacy
-**/lb-services.js

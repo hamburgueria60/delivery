@@ -1,0 +1,14 @@
+type Location {
+  id: String
+  name: String
+  deliveryFee: Float
+}
+
+type Query {
+  locations: [Location]
+}
+
+type Mutation {
+  addLocation(name: String): Location
+  updateLocation(id: ID!, name: String, deliveryFee: Float): Location
+}

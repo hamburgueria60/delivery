@@ -1,5 +1,0 @@
-@each $style in map-keys($mdc-typography-styles) {
-  .mdc-typography--#{$style} {
-    letter-spacing: normal;
-  }
-}

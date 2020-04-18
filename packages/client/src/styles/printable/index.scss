@@ -1,0 +1,18 @@
+.printable,
+.printable > * {
+  display: none;
+}
+
+@media print {
+  @page {
+    size: auto;
+    margin: 0;
+  }
+  body > * {
+    display: none;
+  }
+  .printable,
+  .printable > * {
+    display: block;
+  }
+}

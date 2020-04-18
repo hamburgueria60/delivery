@@ -1,0 +1,31 @@
+type Item {
+  id: ID
+  itemId: ID
+  name: String
+  tag: String
+  categoryId: String
+  categoryName: String
+  categoryTag: String
+  price: Float
+  description: String
+  quantity: Float
+  additionOrDiscount: Float
+}
+
+input ItemInput {
+  id: ID
+  itemId: ID
+  name: String
+  tag: String
+  categoryId: String
+  categoryName: String
+  categoryTag: String
+  price: Float
+  quantity: Float
+  description: String
+  additionOrDiscount: Float
+}
+
+type Query {
+  items(name: String): [Item]
+}

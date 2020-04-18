@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 202.1 85.1">
+  <style>
+		.F{stroke-miterlimit:10}
+		.G{stroke-linecap:round}
+		.H{fill:none}
+		.I{stroke:#eee}
+		.J{stroke-linejoin:round}
+		.K{stroke:#ccc}
+		.L{stroke-width:2}
+	</style>
+  <g stroke-width="2.5">
+    <circle cx="139.5" cy="21.7" r="8.8" fill="#eee" class="K"/>
+    <path d="M149.2 31.2c-2.5 2.5-6 4-9.8 4-7.5 0-13.6-6-13.6-13.6S132 8 139.4 8 153 14 153 21.6c0 2-.5 4-1.3 5.8M124 31.8c-2-3-3-6.4-3-10 0-10.2 8.3-18.5 18.5-18.5S158 11.5 158 21.7s-8.3 18.5-18.5 18.5c-3.6 0-7-1-9.7-2.7" class="F G H I"/>
+  </g>
+  <g class="J L F G H I">
+    <path d="M151 76.5l-14.3-11m-5.2 3.7l4.5-3.6v7.6m-33 3.2L121 62v14"/>
+    <path d="M140 76.4L121 62v14"/>
+  </g>
+  <path d="M13 76.7h186" stroke-width="3" class="F G H I J"/>
+  <path d="M25 82.2h148" fill="#eee" class="F G K L"/>
+  <path d="M4 76.7h4" stroke-width="3" class="F G H I J"/>
+  <g class="L F">
+    <path d="M178 82.2h4" fill="#eee" class="G K"/>
+    <path d="M117 43.5c-.7-2.6-3-4.7-5.7-4.7-3.3 0-6 3-6 6.3 0 .3.1 1 .1 1H97m25.3 1.7v-.5c0-2-1.6-3.7-3.7-3.7-2 0-3.7 1.7-3.7 3.7v.5m-19.7 6.5h28.6a3 3 0 0 0 3-3c0-1.6-1.4-3-3-3h-1.4m-8.4 2H87m-4 0h-4m-2-28.7c-.7-2.6-3-4.7-5.7-4.7-3.3 0-6 3-6 6.3 0 .3.1 1 .1 1H57m25.3 1.7v-.5c0-2-1.6-3.7-3.7-3.7-2 0-3.7 1.7-3.7 3.7v.5m-19.7 6.5h28.6a3 3 0 0 0 3-3c0-1.6-1.4-3-3-3h-1.4m-8.4 2H47m-4 0h-4" class="H I J G"/>
+    <g fill="#eee" class="K">
+      <path d="M69.5 41c-2 0-3.5 1.7-3.5 3.7v5.5h-7V36c0-2.7-2.3-4.8-5-4.8s-5 2.2-5 4.8v21.3h-6V49c0-2-1.4-3.7-3.5-3.7S36 47 36 49v14.2h13v19h10v-25h14V44.7c0-2-1.4-3.7-3.5-3.7z"/>
+      <path d="M57 75.2h11v-12c0-4-6-4-6 0v6h-5m-14.8-23l3-3m-9 3l-2.5-2.5M69 40v-3m2.5 3.6l2-2M54 30.2v-4m3.7 5.5l2.6-2.6m-9.7 2.6l-3-3M39 44.4v-4" class="G"/>
+    </g>
+    <g class="H I J G">
+      <path d="M161 76.2v-19m0 9h5v-8"/>
+      <path d="M161 64.2h-5v-9m5 17h-4v-3"/>
+    </g>
+  </g>
+</svg>

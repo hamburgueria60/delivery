@@ -1,0 +1,26 @@
+type Address {
+  id: String
+  streetName: String
+  number: String
+  location: String
+  complement: String
+  distance: Distance
+  phoneNumber: String
+  deliveryFee: Float
+}
+
+input AddressInput {
+  streetName: String!
+  number: String!
+  location: ID!
+  complement: String
+  phoneNumber: String!
+}
+
+type Mutation {
+  addAddress(address: AddressInput!): Address
+}
+
+type Query {
+  addresses(phone: String): [Address]
+}

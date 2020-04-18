@@ -1,0 +1,30 @@
+@import "~vue-material/dist/theme/engine";
+
+@include md-register-theme(
+  "default",
+  (
+    accent: md-get-palette-color(blue, A200)
+  )
+);
+
+@import "~vue-material/dist/vue-material.min.css";
+@import "~vue-material/dist/theme/all";
+@import "~vue-material/dist/components/MdCard/theme";
+@import "~vue-material/dist/components/MdRadio/theme";
+@import "~vue-material/dist/components/MdSnackbar/theme";
+
+.md-radio-container:focus-within::before {
+  background: rgba(150, 204, 255, 0.2);
+}
+
+body .md-dialog {
+  z-index: 101;
+}
+
+#app canvas {
+  max-width: unset;
+}
+
+html body {
+  line-height: unset;
+}

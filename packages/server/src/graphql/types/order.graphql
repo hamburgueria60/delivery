@@ -1,0 +1,82 @@
+type Payment {
+  type: String
+  service: String
+  value: Float
+}
+
+type AttendantRef {
+  id: ID
+  name: String
+}
+
+input AttendantInput {
+  id: ID
+  name: String
+}
+
+input PaymentInput {
+  type: String
+  service: String
+  value: Float
+}
+
+type Order {
+  id: ID
+  attendant: AttendantRef
+  shortid: String
+  items: [Item]
+  type: String
+  address: Address
+  deliveryFee: Float
+  additionOrDiscount: Float
+  table: String
+  note: String
+  payment: Payment
+  totalAmount: Float
+  subtotalAmount: Float
+  lastStatus: Status
+  statuses: [Status]
+}
+
+input AddressOrderInput {
+  id: ID
+  streetName: String
+  number: String
+  location: String
+  complement: String
+  distance: DistanceInput
+  phoneNumber: String
+  deliveryFee: Float
+}
+
+input OrderInput {
+  id: ID
+  items: [ItemInput]
+  type: String
+  address: AddressOrderInput
+  deliveryFee: Float
+  additionOrDiscount: Float
+  table: String
+  payment: PaymentInput
+  totalAmount: Float
+  subtotalAmount: Float
+  note: String
+  status: String
+  attendant: AttendantInput
+}
+
+input OrderInputFilter {
+  status: String
+}
+
+type Mutation {
+  addOrder(order: OrderInput!): Order
+  updateOrder(order: OrderInput!): Order
+  deleteOrder(id: ID!): Boolean
+}
+
+type Query {
+  orders: [Order]!
+  allOrdersExceptDraft(status: [String]): [Order]!
+  draftOrders(status: [String]): [Order]!
+}

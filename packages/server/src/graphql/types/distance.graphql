@@ -1,0 +1,17 @@
+type Distance {
+  lat: Float
+  long: Float
+  value: Float
+  unit: String
+}
+
+input DistanceInput {
+  lat: Float
+  long: Float
+  value: Float
+  unit: String
+}
+
+type Query {
+  distance: Distance
+}

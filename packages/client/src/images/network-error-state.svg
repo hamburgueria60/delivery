@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 131">
+  <style>.F{stroke-width:2}.G{stroke-linejoin:round}.H{stroke-miterlimit:10}.I{stroke-linecap:round}</style>
+  <g stroke="#ccc" class="G H">
+    <g class="F">
+      <path d="M1 1v98h15V78c.1-2.2 1.8-4 4-4h33c2 0 3.7 1.5 4 3.4 0 .2.1.5.1.7v21h14V1H1zm49.5 53H22.2c-10.7-12-10.7-23 0-35h28.2c11 12 11 23 .1 35z" fill="#eee"/>
+      <path d="M40 131v-19" fill="none" class="I"/>
+    </g>
+    <path d="M28.5 38v-9m17 9v-9" fill="none" stroke-width="3" class="I"/>
+  </g>
+  <path d="M39.4 43.6c0-3-6-3-6 0v6h6v-6z" fill="#ccc"/>
+  <g stroke="#ccc" fill="none" class="G H">
+    <path d="M53 82.2H20c-2.2 0-4-1.8-4-4 0-2.2 1.8-4 4-4h33c2 0 3.7 1.5 4 3.4 0 .2.1.4.1.7-.1 2.3-2 4-4 4z" class="F"/>
+    <g class="I">
+      <path d="M28.5 78V66m17 12V66" stroke-width="3"/>
+      <path d="M33 131v-19m24-15.3c0 8-6.6 14.7-14.7 14.7H30.6c-8 0-14.7-6.6-14.7-14.7" class="F"/>
+    </g>
+  </g>
+</svg>

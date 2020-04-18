@@ -1,42 +1,52 @@
 module.exports = {
-  extends: ['@hamburgueria60/eslint-config-default/angular'],
-  globals: {
-    $: true,
-    io: true,
-    moment: true,
-    _: true,
-    StringMask: true,
+  root: true,
+  env: {
+    node: true,
   },
-  parser: 'babel-eslint',
-  settings: {
-    'import/resolver': {
-      parcel: { rootDir: 'src' },
-    },
+  extends: [
+    '@hamburgueria60/eslint-config-default/vue',
+    'plugin:vue/essential',
+    'eslint:recommended',
+    '@vue/typescript/recommended',
+    '@vue/prettier',
+    '@vue/prettier/@typescript-eslint',
+  ],
+  parserOptions: {
+    ecmaVersion: 2020,
   },
   rules: {
-    'consistent-return': 'warn',
-    'max-classes-per-file': 'warn',
-    'no-multi-assign': 'warn',
-    'no-plusplus': 'warn',
-    'no-prototype-builtins': 'warn',
-    'no-restricted-globals': 'warn',
-    'no-restricted-syntax': 'warn',
-    'no-shadow': 'warn',
-    'no-underscore-dangle': 'warn',
-    'no-unused-expressions': 'warn',
-    'no-use-before-define': 'warn',
-    'prefer-destructuring': 'warn',
-    'prefer-rest-params': 'warn',
-    'prefer-spread': 'warn',
-    'radix': 'warn',
-    'react/jsx-props-no-spreading': 'warn',
-    'react/static-property-placement': 'warn',
+    'vue/no-unused-components': 'warn',
+    'import/prefer-default-export': 'off',
   },
   overrides: [
     {
-      files: ['src/utils/**/*.js', 'src/services/**/*.js'],
+      files: ['public/index.html'],
       rules: {
-        'import/prefer-default-export': 'off',
+        'prettier/prettier': 'off',
+      },
+    },
+    {
+      files: ['**/*.spec.{j,t}s?(x)'],
+      env: {
+        jest: true,
+      },
+      rules: {
+        'import/no-extraneous-dependencies': 'off',
+        '@typescript-eslint/explicit-function-return-type': 'off',
+        '@typescript-eslint/ban-ts-ignore': 'off',
+      },
+    },
+    {
+      files: ['vue.config.js'],
+      rules: {
+        '@typescript-eslint/no-var-requires': 'off',
+      },
+    },
+    {
+      files: ['config/**/*.js', 'middlewares/**/*.js'],
+      rules: {
+        '@typescript-eslint/no-var-requires': 'off',
+        'import/no-extraneous-dependencies': 'off',
       },
     },
   ],

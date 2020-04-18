@@ -1,0 +1,21 @@
+type Call {
+  id: ID
+  read: Boolean
+  type: String
+  phoneNumber: String
+  createdAt: String
+}
+
+type Query {
+  calls: [Call]
+  receivedCalls: [Call]
+}
+
+type Mutation {
+  addCall(phoneNumber: String): Call
+  updateCallToRead: Call
+}
+
+type Subscription {
+  callReceived: Call
+}

@@ -1,6 +1,0 @@
-{
-  "hamburgueria60": {
-    "url": "${JAWSDB_URL}",
-    "connector": "mysql"
-  }
-}
