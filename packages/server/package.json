@@ -28,7 +28,7 @@
     "merge": "^1.2.0",
     "moment": "^2.11.2",
     "promised-ejs": "0.0.22",
-    "socket.io": "^2.2.0",
+    "socket.io": "^2.4.0",
     "strong-error-handler": "^3.4.0",
     "underscore": "^1.8.3",
     "winston": "^2.2.0"
