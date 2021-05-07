@@ -30,7 +30,7 @@
     "promised-ejs": "0.0.22",
     "socket.io": "^2.2.0",
     "strong-error-handler": "^3.4.0",
-    "underscore": "^1.8.3",
+    "underscore": "^1.12.1",
     "winston": "^2.2.0"
   },
   "devDependencies": {
