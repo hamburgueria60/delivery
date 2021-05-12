@@ -25,7 +25,7 @@
     "loopback-component-explorer": "^6.4.0",
     "loopback-connector-mysql": "^2.2.0",
     "loopback-datasource-juggler": "^2.39.0",
-    "merge": "^1.2.0",
+    "merge": "^2.1.1",
     "moment": "^2.11.2",
     "promised-ejs": "0.0.22",
     "socket.io": "^2.2.0",
